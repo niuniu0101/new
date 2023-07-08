@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'chat/message_page.dart';
 import 'contacts/contacts.dart';
 
+import 'found/found.dart';
+
 
 enum ItemType{
   GroupChat,AddFriends,Qrcode,Payments,Help
 }
 
 class App extends StatefulWidget {
-  
+
   @override
   MainState createState() => MainState();
-  
+
 }
 
 class MainState extends State<App> {
@@ -20,7 +22,11 @@ class MainState extends State<App> {
 
   MessagePage ?message;
    Contacts ? contacts;
+
+   Found ? found;
+
   // Found found;
+
   // Personal me;
 
   currentPage(){
@@ -40,6 +46,17 @@ class MainState extends State<App> {
 
         }
         return contacts;
+
+
+      case 2:
+        if(found == null)
+        {
+          found = new Found();
+
+        }
+        return found;
+
+
       //
       // case 2:
       //   if(found == null)
@@ -49,6 +66,7 @@ class MainState extends State<App> {
       //   }
       //   return found;
       //
+
       // case 3:
       //   if(me == null)
       //   {
